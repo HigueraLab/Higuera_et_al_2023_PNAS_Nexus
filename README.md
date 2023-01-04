@@ -19,11 +19,11 @@ Higuera, P.E., M.C. Cook, J.K. Balch, E.N. Stavros, A.L. Mahood, and L.A. St. De
 
 ## 1. CODE
 
+Code includes 12 files, all written for MATLAB software (*.m file type; www.mathworks.com) and  generally fully commented. 
+
 #### Files: ICS209_PLUS_*.m are script files 
 
 The number included after ICS209_PLUS_ (0, 1, or 2) indicates the order in which the scripts should be run: "0" imports raw data and creates datasets used in subsquent anlyses; this does not need to be run to recreate the figures in the paper, only if the input data changed; "1" loads the datasets used in the analyses, from the "data" directory; and "2" does the analyses and creates the related figures from the paper. File names indicate the figure(s) from the main text or supporting information which are created. 
-
-The code is writte for MATLAB software (*.m file type; www.mathworks.com) and is generally fully commented. 
 
 #### Files: ktaub.m and Theil_Sen_Regression.m are Matlab functions
 
@@ -31,6 +31,8 @@ These are called upon in some of the .m scripts noted above, to calculate the Th
 
 
 ## 2. DATA
+
+Data includes seven directories, describe below. 
 
 ###  burnable_area: 
 
@@ -86,8 +88,7 @@ Wildfire incidents included in the ICS209-PLUS dataset, described in the methods
 
 ## 3. FIGURES
 
-Figures in .jpg, .png, .ppt, and .fig (Matlab figure) formats. Fire names indicate figure number from the main text or supporting information. Three .pdf files group figures from the supporting inforamtion by state, ecoregion (level 1), and GACCs. The .pptx file include figures from the main text, in Power Point format. 
-
+Figures in .jpg, .png, .ppt, and .fig (Matlab figure) formats. Fire names indicate figure number from the main text or supporting information. Three .pdf files group figures from the supporting inforamtion by state, ecoregion (level 1), and GACCs. The .pptx file include figures from the main text, in Power Point format. There is one subdirectory, describe below. 
 
 ### Figures_TIFF_mat_format: 
 
