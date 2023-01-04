@@ -19,26 +19,55 @@ Higuera, P.E., M.C. Cook, J.K. Balch, E.N. Stavros, A.L. Mahood, and L.A. St. De
 
 ## 1. CODE
 
-#### File: *.m
-Written for MATLAB software (*.m file type; www.mathworks.com), and fully commented, including dependencies. 
+#### Files: ICS209_PLUS_*.m are script files. The number included after ICS209_PLUS_ (0, 1, or 2) indicates the order in which the scripts should be run: "0" imports raw data and creates datasets used in subsquent anlyses; this does not need to be run to recreate the figures in the paper, only if the input data changed; "1" loads the datasets used in the analyses, from the "data" directory; and "2" does the analyses and creates the related figures from the paper. File names indicate the figure(s) from the main text or supporting information which are created. 
+The code is writte for MATLAB software (*.m file type; www.mathworks.com) and is generally fully commented. 
 
-#### File: *.R
-Written for R software (*.R file type), and fully commented, including dependencies. 
+#### Files: ktaub.m and Theil_Sen_Regression.m are Matlab functions, called upon in some of the .m scripts noted above, to calculate the Theil-Sen slope and subsequent statistics. These files were accessed via www.mathworks.com and are fully commented, including authors and citations. 
+
 
 ## 2. DATA
 
-###  Paleo-fire datasets:
-####  1. 
-####  2. 
-####  3. ROMO_CharResults.csv -- charcoal-inferred fire history for sites from Higuera et al. (2014, J of Ecology), Dunnette et al. (2014, New Phytologist), and 
+###  burnable_area: directory with .csv files for total area classified as burnable and unburnable, based on methods described in main text of the associated publication. Each file summarizes this for different spatial units:
+####  1. burnable_area_ecoLevel1.csv -- Level 1 ecoretions
+####  2. burnable_area_ecoLevel3.csv -- Level 3 ecoretions (not used in analyses) 
+####  3. burnable_area_gacc.csv -- Geographic area corrdination centers
+####  4. burnable_area_states.csv -- Each of the 11 western states
+
+###  derrived: directory with .mat files (Matlab data file) with summary statsitics for fire-climate relationships at the state level, based on regression between log(annual area burned) and VPD, as described in the methods section in the main text of the associated paper:
+#### 1. fireClimate_m_STUSPS -- slope 
+#### 2. fireClimate_p_STUSPS -- p-value for slope
+#### 3. fireClimate_r_STUSPS -- correlation coefficient
+
+### gridmet: climate data from Gridmet, as described in the methods section of the associated publication. 
+
+#### 1. Raw data from gridmet are in .csv format, with spatial domain, months averaged over, and climate variable indicated in the file name. For example, "gridmet_natl_states_may_sept_avg_vpd_.csv" includes Average May-September vapor pressure deficit, averaged over each western state. 
+#### 2. extractClimateData.m is a Matlab script that accesses and summarizes the data in the .csv files, and saves the summaries in .mat files (Matlab data format files). 
+#### 3. *.mat files are the resulting data files, some of which are used in figure scripts. 
+
+### MTBS: Monitoring trends in burn severity data, used for Figure S1 in the associated publication. 
+
+#### 1. mtbs_western_wildfire_events_1999to2020.csv -- MTBS data assocaited with 7268 individual fires from the 11 western states, from 1999 to 2020. 
+
+### qualitative_supportingInfo: Seven PDF files of agency reports used to update the cuase of ignition for fires in the past c. 5 years of the dataset. 
+
+### structure_abundance: structure abundance in flammable vegetation, calcualted as described in the methods section of the associated publication. File names reference "exposure" but we refer to this as abundance here and in the text of the associated publication. 
+####  1. StrucExposureToFire_ecoLevel1.csv -- Level 1 ecoregions
+####  2. StrucExposureToFire_ecoLevel3.csv -- Level 3 ecoregions (not used in analyses) 
+####  3. StrucExposureToFire_area_gacc.csv -- Geographic area corrdination centers
+####  4. StrucExposureToFire_states.csv -- Each of the 11 western states
+#### 5. StructureAbundance_WesternStates.mat -- Data summarized and saved in Matlab format, called upon from scripts used in analysis and figure creation. 
+
+### wf-incidents: wildfire incidents included in the ICS209-PLUS dataset, described in the methods section of the associated publication. These are the foundational data used for the publicaiton, called upon in the script "ICS209_PLUS_0_ImportData_UpdateCauseCode.m" described above. This script created the files "ics209plus_wf_incidents_west_1999to2020_qc_PEH.xlsx" and the two *.mat data files in this directory. The relationship among these files is described in the included "ReadMe.txt" file within this directory. 
+
+#### 1. ics209plus_wf_incidents_west_1999to2020_qc.xlsx -- raw input data, without the updated cause codes. 
+#### 2. ics209plus_wf_incidents_west_1999to2020_qc_PEH.xlsx -- fire incidents, with the updated cause codes.
+#### 3. ics209plus_wf_incidents_west_1999to2020_qc_PEH.mat -- same data saved in .mat format, for efficientcy
+#### 4. strucLossDOY.mat -- day-of-year (0-366) associated with each wildfire event, in Matlab data format. This is derrived in included scripts, described above. 
+
 
 ## 3. FIGURES
 
-Figures in .tiff format, at 600 dpi. 
+Figures in .jpg, .png, .ppt, and .fig (Matlab figure) formats. Fire names indicate figure number from the main text or supporting information. Three .pdf files group figures from the supporting inforamtion by state, ecoregion (level 1), and GACCs. The .pptx file include figures from the main text, in Power Point format. 
 
-#### Files:
-* Fig_1.tiff
-* Fig_2.tiff
-* Fig_S1.tiff
-* Fig_S2.tiff
-* Fig_S3.tiff
+
+### Figures_TIFF_mat_format: main publication figures in .tiff format, at 600 dpi, and selected figures from supporting information in .fig format (Matlab figure format).  
