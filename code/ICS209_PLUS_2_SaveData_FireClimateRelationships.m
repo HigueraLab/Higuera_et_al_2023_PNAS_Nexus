@@ -1,4 +1,4 @@
-%% ICS209_PLUS_2_Fig_SI_FireClimateRelationships.m
+%% ICS209_PLUS_2_SaveData_FireClimateRelationships.m
 %
 % Requires running ICS209_PLUS_1_LoadDataset.m first
 %
