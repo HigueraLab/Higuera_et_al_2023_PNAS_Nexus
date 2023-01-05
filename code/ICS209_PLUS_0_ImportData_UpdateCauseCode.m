@@ -12,10 +12,10 @@
 %
 % P. Higuera
 % Created: December 2021
-% Updates: ...Feb. 2022
+% Updated: ...Feb. 2022
 
 clear all
-cd C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\wf-incidents
+cd C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_PNAS-Nexus_2023\data\wf-incidents
 
 %% 1. Import data
 %
@@ -31,32 +31,16 @@ cd C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_
 % P. Higuera, December 2021
 % Updated: Jan. 2022
 
-data = readtable('C:\Users\philip.higuera.UM\Box\1_phiguera\1_working\Projects\2021_CIRES_VisitingFellow_Program\ChangingHumanCausesAndCostsOfWesternWildfires\data\wf-incidents\ics209plus_wf_incidents_west_1999to2020_qc.xlsx');
+data = readtable('ics209plus_wf_incidents_west_1999to2020_qc.xlsx');
 
-%% Delete one of the enteries for duplicate fires. 
-% on 3/9/2022; keep this code until orig. dataset is updated. 
-
-idx = find(strcmp(data.INCIDENT_ID,'2020_11773286_WORTHINGTON'));
-data(idx,:) = [];
-% https://gacc.nifc.gov/nwcc/content/pdfs/archives/2020_NWCC_Annual_Fire_Report.pdf
-% Delete this fire, as it repeats a second Worthgtion fire with same start
-% date and same location descriptoin. *Noted to Lise via Slack, 3/9/22. 
-
-% July Complex Fire: includes the CALDWELL, which is also in the dataset
-% https://inciweb.nwcg.gov/incident/article/6881/52815/
-% Cause: Lightning. Size: 80,859 (Caldwell), 1035 (Allen), 1,367 (Dalton). Percent Contained: 85% Caldwell, 100% Allen, 100% Dalton.
-idx = find(strcmp(data.INCIDENT_ID,'2020_11767577_CALDWELL'));
-data(idx,:) = [];
-
-
-%% 2. Create new variable CAUSE_UPDATED **OR** write over CAUSE_UPDATED
+%% 1. Create new variable CAUSE_UPDATED **OR** write over CAUSE_UPDATED
 %%%% Start by duplicating CAUSE and appending it to the end of the table
 % CAUSE_UPDATED = table(data.CAUSE,'VariableNames',{'CAUSE_UPDATED'});
 % data = [data CAUSE_UPDATED];
 
 data.CAUSE_UPDATED = data.CAUSE;
 
-%% 3. Update new variable CAUSE_UPDATED with inforamtion from CAUSE and 
+%% 2. Update new variable CAUSE_UPDATED with inforamtion from CAUSE and 
 % FOD_CAUSE. There may reamine the challenge of fires that combined 
 % multiple individual events. 
 
@@ -248,7 +232,6 @@ data.CAUSE_UPDATED(idx) = {'H'};
 % https://www.denverpost.com/2012/09/12/waldo-canyon-fire-human-caused-but-intent-still-to-be-determined/
 
 %% ARIZONA (n = 2):
-
 idx = find(strcmp(data.INCIDENT_ID,'2011_AZ-COP-001102_MONUMENT'));
 data.CAUSE_UPDATED(idx) = {'H'};
 % https://tucson.com/news/local/wildfire/human-cause-cited-in-big-2011-wildfires/article_1ec9661b-d4a3-53ab-8906-d6415b2c3fcd.html
@@ -273,7 +256,6 @@ data.CAUSE_UPDATED(idx) = {'L'};
 % Cause: lightning
 
 %% NEVADA: (n = 2)
-
 idx = find(strcmp(data.INCIDENT_ID,'2018_9206799_MARTIN'));
 data.CAUSE_UPDATED(idx) = {'H'};
 % https://www.reviewjournal.com/local/local-nevada/2k-reward-offered-in-investigation-of-huge-nevada-wildfire/
@@ -321,14 +303,12 @@ data.CAUSE_UPDATED(idx) = {'H'};
 % "“We know it’s human-caused but fire investigators are working at that and they have not given us any indication of what the cause may be,” Perry said."
 
 %% IDAHO: (n = 1)
-
 idx = find(strcmp(data.INCIDENT_ID,'2020_11820439_WHITETAIL LOOP'));
 data.CAUSE_UPDATED(idx) = {'H'};
 % https://www.krem.com/article/news/local/wildfire/fire-orofino-clearwater-county-idaho-department-of-lands/293-9ba5bb98-ee1e-43bd-afaf-badc08060794#:~:text=The%20fire%20has%20destroyed%20one%20home%20and%20several%20outbuildings.&text=OROFINO%2C%20Idaho%20%E2%80%94%20Idaho%20Department%20of,called%20the%20Whitetail%20Loop%20Fire.
 % "OROFINO, Idaho — Idaho Department of Lands announced Friday that a bird striking powerlines caused a nearly 500 acre fire near Orofino."
 
 %% CALIFORNIA FIRES (n = 46)
-
 idx = find(strcmp(data.INCIDENT_ID,'2017_7192643_WALL')); 
 data.CAUSE_UPDATED(idx) = {'H'};
 % https://www.mercurynews.com/2019/04/07/cal-fire-butte-county-releases-cause-of-2017s-wall-fire/
@@ -604,7 +584,6 @@ data.CAUSE_UPDATED(idx) = {'H'};
 % The cause of the Valley fire remains under investigation, although several residents said the blaze may have been ignited by a tractor fire on Saturday afternoon on Carveacre Lane.
 
 %% WASHINGTON FIRES (n = 58)
-
 idx = find(strcmp(data.INCIDENT_ID,'2019_10734804_COLD CREEK'));
 data.CAUSE_UPDATED(idx) = {'H'};
 % https://wildfiretoday.com/2019/07/20/cold-creek-fire-burns-over-40000-acres-in-washington/
