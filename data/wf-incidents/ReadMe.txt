@@ -6,9 +6,9 @@ the CAUSE_UPDATED field based on information in FOD_CAUSE, and then
 manually based on checking media, CalFire, and other reports. All manual 
 updates are described in annotation text in the .m script referenced above. 
 Information supporting these updates is also included in the 
-"qualitative_supportingInfo" directly, found within the "data" directory.  
+"qualitative_supportingInfo" directory found within the "data" directory.  
 
-3. Save new files (.xlsx and .mat format) with “_PEH” appended to the file name.
+2. Save new files (.xlsx and .mat format) with “_PEH” appended to the file name.
 These are the final data used in the analyses included in the manuscript.
 
 P. Higuera, December 2021

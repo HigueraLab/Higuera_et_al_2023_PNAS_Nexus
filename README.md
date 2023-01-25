@@ -78,9 +78,117 @@ Structure abundance in flammable vegetation, calculated as described in the meth
 
 ### wf-incidents: 
 
-Wildfire incidents included in the ICS209-PLUS dataset, described in the methods section of the associated publication, and as previously published by St. Denise et al. (2020), for incidents through 2017, and updated here through 2020. These are the foundational data used for the publication, called upon in the script "ICS209_PLUS_0_ImportData_UpdateCauseCode.m" described above. This script created the files "ics209plus_wf_incidents_west_1999to2020_qc_PEH.xlsx" and the two *.mat data files in this directory. The relationship among these files is described in the included "ReadMe.txt" file within this directory. These files includes numerous fields not used in this analysis.  
+Wildfire incidents included in the ICS-209-PLUS dataset, as described in the methods section of the associated publication, and as previously published by St. Denise et al. (2020) for incidents through 2017. As noted in the associated publication, we updated this dataset here through 2020. *After submission (July 2022) and final acceptance (Jan. 2023) of the associated publication, we expect the original ICS-209-PLUS dataset to be updated through 2020 And officially released via a FigShare archive: https://doi.org/10.6084/m9.figshare
 
-We used the following fields in the current work: INCIDENT_NAME (incident name); FINAL_ACRES (finale fire size, in acres); DISCOVERY_DOY (day of year the fire was discovered); POO_LATITUDE and POO_LONGITUDE (latitude and longitude of the point of origion of each fire); POJECTED_FINAL_IM_COSTS (final projected incident managment costs, in US dollors); STR_DESTROYED_TOTAL (total structures destroyed in the fire event); CAUSE (cause of ignition, from ICS-209 report); FOD_CAUSE (cause of ignition, from FOD reports); CAUSE_UPDATED (cause of ignition, after merging information from ICS-209, FOD, and supplementary information, as described in the associated publication: H = human-related, L = lightning, U = undetermined); tree_pct, shrub_pct, and herb_pct = percent tree, shrub, or herb cover around the point of origin of the fire, as described in the methods section of the associated publication. 
+The ICS-209-PLUS dataset is the foundational data used for the associated publication, called upon in the script "ICS209_PLUS_0_ImportData_UpdateCauseCode.m" described above. This script created the files "ics209plus_wf_incidents_west_1999to2020_qc_PEH.xlsx" and the two *.mat data files in this directory, as follows: 
+1. Run script ICS209_PLUS_0_ImportData_UpdateCauseCode.m to open data in 
+ics209plus_wf_incidents_west_1999to2020_qc.xls. This script updates
+the CAUSE_UPDATED field based on information in FOD_CAUSE, and then 
+manually based on checking media, CalFire, and other reports (as describe in the associated publication). All manual updates are described in annotation text in the .m script referenced above. Information supporting these updates is also included in the 
+"qualitative_supportingInfo" directory, referenced above.  
+
+2. Save new files (.xlsx and .mat format) with “_PEH” appended to the file name.
+These are the final data used in the analyses included in the manuscript.
+
+Column headers in the .xls files area describe below. Note, these files include numerous fields not used in this analysis, but they are maintained in the data file for integration with other ongoing projects. The fields used in the analysis are demarcated with “*” before the field in this ReadMe file (but not in the data file itself).
+
+X: Arbitrary row ID 
+INCIDENT_ID: The ICS-209-PLUS Incident ID
+INCIDENT_NUMBER: Incident number for each incident 
+*INCIDENT_NAME: Incident name
+*FINAL_ACRES: Final reported fire size, in acres
+*CAUSE: Cause of fire, as reported in the ICS-209 report (U, undetermined; H, human-related; L, lightning; O, other; NaN, not reported. 
+COMPLEX: Name for fire complex individual event is associated with
+DISCOVERY_DATE: month, day, year of fire discovery
+*DISCOVERY_DOY: day of year (0-366) of fire discovery
+EXPECTED_CONTAINMENT_DATE: expected containment date
+FATALITIES: number of fatalities reported
+FUEL_MODEL: fuel model associated with fire event
+INCIDENT_DESCRIPTION: text description of event
+INC_IDENTIFIER: incident identifier, for a subset of events 
+INJURIES_TOTAL: total number of injuries reported
+LL_CONFIDENCE: 
+LL_UPDATE
+LOCAL_TIMEZONE: time zone linked with fire event
+POO_CITY: City close to the fire point of origin
+POO_COUNTY: Country linked with the fire point of origin
+*POO_LATITUDE: Latitude of the fire point of origin
+*POO_LONGITUDE: Longitude of fire point of origin
+POO_SHORT_LOCATION_DESC: Short description of the fire point of origin
+POO_STATE: State linked with the fire point of origin
+*PROJECTED_FINAL_IM_COST: final projected incident management costs, in US dollars
+START_YEAR: Year of ignition
+SUPPRESSION_METHOD: suppression method(s) applied
+STR_DAMAGED_TOTAL: total structures damaged in the fire event
+STR_DAMAGED_COMM_TOTAL: total commercial structures damaged in the fire event
+STR_DAMAGED_RES_TOTAL: total residential structures damaged in the fire event
+*STR_DESTROYED_TOTAL: total structures destroyed in the fire event
+STR_DESTROYED_COMM_TOTAL: total commercial structures destroyed in the fire event
+STR_DESTROYED_RES_TOTAL: total residential structures destroyed in the fire event
+FINAL_REPORT_DATE: date of the final ICS-209 report
+INCIDENT_ID_OLD: Old, obsolete incident ID
+INC_MGMT_NUM_SITREPS: Number of situation reports integrated into final report for each event
+EVACUATION_REPORTED: binary, for evacuations (1) or no evacuations (0) related to the fire event. 
+STR_THREATENED_MAX: Reported maximum number of structures threatened
+STR_THREATENED_COMM_MAX: Reported maximum number of commercial structures threatened
+STR_THREATENED_RES_MAX: Reported maximum number of residential structures threatened
+TOTAL_AERIAL_SUM: Total personnel utilized for aerial attack response
+TOTAL_PERSONNEL_SUM: Total personnel associated with ICS response
+WF_PEAK_AERIAL: Maximum personnel associated with aerial attack response
+WF_PEAK_AERIAL_DATE: Date (m/d/yr) of maximum aerial attach response
+WF_PEAK_AERIAL_DOY: Day of year (0-366) of maximum aerial attack personnel
+WF_PEAK_PERSONNEL: Maximum personnel associated with ICS response
+WF_PEAK_PERSONNEL_DATE: Date (m/d/yr) of maximum ICS personnel response
+WF_PEAK_PERSONNEL_DOY: Day of year (0-366) of maximum ICS personnel response
+WF_CESSATION_DATE: Date (m/d/yr) fire declared out
+WF_CESSATION_DOY: Day of year (0-366) fire declared out
+WF_MAX_FSR: Maximum fire spread rate (units unknown)
+WF_MAX_GROWTH_DATE: Date (m/d/yr) of maximum fire spread
+WF_MAX_GROWTH_DOY: Day of year (0-366) of maximum fire spread
+WF_GROWTH_DURATION: Days of significant fire growth
+FOD_ID_LIST: Fire identifier from FOD report
+FOD_FIRE_NUM: Fire number from FOD report
+MTBS_FIRE_LIST: Fire identifier from MTBS dataset
+FOD_DISCOVERY_DOY: day of year (0-366) of fire discovery, from FOD report
+FOD_CONTAIN_DOY: day of year (0-366) of fire containment 
+FOD_CAUSE: description of fire cause, from FOD report
+FOD_FINAL_ACRES: final fire size, in acres, from FOD report
+FOD_FIRE_LIST: List of individual events, if any, integrated into a fire complex, from FOD report
+FOD_COORD_LIST: List of individual coordinates, if any, integrated into a fire complex, from FOD report
+FOD_CAUSE_NUM: incomplete/sparce field not used in analysis, referencing fire cause
+FOD_COORD_NUM: incomplete/sparce field not used in analysis, referencing fire coordination number 
+MTBS_FIRE_NUM: incomplete/sparce field not used in analysis, referencing fire number
+LRGST_FOD_ID: FOD ID number of largest fire event, maintained when integrating multiple fires making up a fire complex
+LRGST_FIRE_LATITUDE: FOD latitude of largest fire event, maintained when integrating multiple fires making up a fire complex 
+LRGST_FIRE_LONGITUDE: FOD longitude of largest fire event, maintained when integrating multiple fires making up a fire complex 
+LRGST_MTBS_FIRE_INFO: MTBS fire descriptor of largest fire event, maintained when integrating multiple fires making up a fire complex 
+LRGST_FIRE_COORDS: MTBS coordinates of largest fire event, maintained when integrating multiple fires making up a fire complex
+MTBS_ID: Fire identification from MTBS dataset
+MTBS_FIRE_NAME: Fire name from MTBS dataset
+FINAL_KM2: Final fire size, in square kilometers, from MTBS datast
+LONGITUDE: Longitude of fire center, from MTBS dataset
+LATITUDE: Latitude of fire center, from MTBS dataset
+START_MONTH: Month of ignition, from MTBS dataset
+START_WEEK: Week (numeric) of ignition, from MTBS dataset
+*GACCAbbrev: Geographic Coordination Center abbreviation, for the fire event’s point of origin (i.e., POO_LATITUDE and POO_LONGITUDE, above)
+*GACCName: Geographic Coordination Center name, for the fire event’s point of origin (i.e., POO_LATITUDE and POO_LONGITUDE, above)
+*NA_L3CODE: Level-three ecoregion code, for the fire event’s point of origin (i.e., POO_LATITUDE and POO_LONGITUDE, above)
+*NA_L3NAME: Level-three ecoregion name, for the fire event’s point of origin (i.e., POO_LATITUDE and POO_LONGITUDE, above)
+*NA_L2CODE: Level-two ecoregion code, for the fire event’s point of origin (i.e., POO_LATITUDE and POO_LONGITUDE, above)
+*NA_L2NAME: Level-two ecoregion name, for the fire event’s point of origin (i.e., POO_LATITUDE and POO_LONGITUDE, above)
+*NA_L1CODE: Level-two ecoregion code, for the fire event’s point of origin (i.e., POO_LATITUDE and POO_LONGITUDE, above)
+*NA_L1NAME: Level-one ecoregion name, for the fire event’s point of origin (i.e., POO_LATITUDE and POO_LONGITUDE, above)
+*STUSPS: State, for the fire event’s point of origin (i.e., POO_LATITUDE and POO_LONGITUDE, above)
+ID_LIST: empty field
+MC_COMMENTS: Comments by Max Cook
+*CAUSE_UPDATED: Cause of ignition, after merging information from ICS-209, FOD, and supplementary information, as described in the associated publication: H = human-related, L = lightning, U = undetermined
+id: Fire event identification
+lcms_mode: Modal (most frequently occurring) land cover code within the MTBS fire perimeter, from the LCMS land-cover classification
+mfri_mode: Modal (most frequently occurring) mean fire return intervals within the MTBS fire perimeter, from the LANDFIRE data product
+*tree_pct: percent tree cover around the point of origin of the fire, as described in the methods section of the associated publication
+*shrub_pct: percent shrub cover around the point of origin of the fire, as described in the methods section of the associated publication
+*herb_pct: percent herb cover around the point of origin of the fire, as described in the methods section of the associated publication
+
 
 ##### 1. ics209plus_wf_incidents_west_1999to2020_qc.xlsx -- raw input data, without the updated cause codes. 
 ##### 2. ics209plus_wf_incidents_west_1999to2020_qc_PEH.xlsx -- fire incidents, with the updated cause codes.
