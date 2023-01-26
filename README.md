@@ -78,13 +78,10 @@ Structure abundance in flammable vegetation, calculated as described in the meth
 
 ### wf-incidents: 
 
-Wildfire incidents included in the ICS-209-PLUS dataset, as described in the methods section of the associated publication, and as previously published by St. Denise et al. (2020) for incidents through 2017. As noted in the associated publication, we updated this dataset here through 2020. *After submission (July 2022) and final acceptance (Jan. 2023) of the associated publication, the officially updated ICS-209-PLUS dataset through 2020 was released via a FigShare archive: https://doi.org/10.6084/m9.figshare.19858927.v3 We point potential user to this dataset, unless the goal is to recreate the figures and analyses in the publication associated with this data archive (PNAS-Nexus, 2023). 
+Wildfire incidents included in the ICS-209-PLUS dataset, as described in the methods section of the associated publication, and as previously published by St. Denise et al. (2020) for incidents through 2017. As noted in the associated publication, we updated this dataset here through 2020. *After submission (July 2022) and final acceptance (Jan. 2023) of the associated publication, the officially updated ICS-209-PLUS dataset through 2020 was released via a FigShare archive: https://doi.org/10.6084/m9.figshare.19858927.v3 We point potential users to this dataset, unless the goal is to recreate the figures and analyses in the publication associated with this data archive (PNAS-Nexus, 2023). 
 
 The ICS-209-PLUS dataset is the foundational data used for the associated publication, called upon in the script "ICS209_PLUS_0_ImportData_UpdateCauseCode.m" described above. This script created the files "ics209plus_wf_incidents_west_1999to2020_qc_PEH.xlsx" and the two *.mat data files in this directory, as follows: 
-1. Run script ICS209_PLUS_0_ImportData_UpdateCauseCode.m to open data in 
-ics209plus_wf_incidents_west_1999to2020_qc.xls. This script updates
-the CAUSE_UPDATED field based on information in FOD_CAUSE, and then 
-manually based on checking media, CalFire, and other reports (as describe in the associated publication). All manual updates are described in annotation text in the .m script referenced above. Information supporting these updates is also included in the 
+1. Run script ICS209_PLUS_0_ImportData_UpdateCauseCode.m to open data in ics209plus_wf_incidents_west_1999to2020_qc.xls. This script updates the CAUSE_UPDATED field based on information in FOD_CAUSE, and then manually based on checking media, CalFire, and other reports (as describe in the associated publication). All manual updates are described in annotation text in the .m script referenced above. Information supporting these updates is also included in the 
 "qualitative_supportingInfo" directory, referenced above.  
 
 2. Save new files (.xlsx and .mat format) with “_PEH” appended to the file name.
@@ -126,9 +123,9 @@ INC_IDENTIFIER: incident identifier, for a subset of events
 
 INJURIES_TOTAL: total number of injuries reported
 
-LL_CONFIDENCE: 
+LL_CONFIDENCE: Mainly missing values, but high (H) or low (L) for some individual events; an artifact from combining ICS-209 and FOD datasets 
 
-LL_UPDATE
+LL_UPDATE: Mainly missing values, but a value of “1” for some individual events; an artifact from combining ICS-209 and FOD datasets
 
 LOCAL_TIMEZONE: time zone linked with fire event
 
