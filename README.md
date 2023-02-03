@@ -1,5 +1,4 @@
-# Data, code, and figures from Higuera et al. (2023), PNAS Nexus: 
-Higuera, P. E., M. C. Cook, J. K. Balch, E. N. Stavros, A. L. Mahood, and L. A. St. Denis. 2023. Shifting social-ecological fire regimes explain increasing structure loss from Western wildfires. PNAS Nexus. https://academic.oup.com/pnasnexus/article-lookup/doi/10.1093/pnasnexus/pgad005
+# Data, code, and figures from Higuera et al., 2023, "Shifting social-ecological fire regimes explain increasing structure loss from Western wildfires," PNAS Nexus.
 
 ## Overview
 
@@ -10,10 +9,10 @@ This archive includes data and scripts needed to reproduce the analyses in Higue
 ### Citation Information
 
 #### DATA and CODE - *please cite if you use data, code, or figures in your own work*
-TBD (1/3/23)- Dryad citation 
+Higuera, P. E., M. C. Cook, J. K. Balch, E. N. Stavros, A. L. Mahood, and L. A. St. Denis. 2023. Data and code from: Shifting social-ecological fire regimes explain increasing structure loss from Western wildfires, Dryad, Dataset, https://doi.org/10.5061/dryad.5hqbzkh9m 
 
 #### Reference to paper 
-Higuera, P.E., M.C. Cook, J.K. Balch, E.N. Stavros, A.L. Mahood, and L.A. St. Denis. 2023. Shifting social-ecological fire regimes explain increasing structure loss from Western wildfires. PNAS Nexus 2: In Press (1/3/2023).
+Higuera, P. E., M. C. Cook, J. K. Balch, E. N. Stavros, A. L. Mahood, and L. A. St. Denis. 2023. Shifting social-ecological fire regimes explain increasing structure loss from Western wildfires. PNAS Nexus. https://academic.oup.com/pnasnexus/article-lookup/doi/10.1093/pnasnexus/pgad005
 
 #### Contents
 
