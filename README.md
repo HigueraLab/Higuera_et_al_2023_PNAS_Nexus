@@ -1,4 +1,4 @@
-# Data, code, and figures from Higuera et al., 2023, "Shifting social-ecological fire regimes explain increasing structure loss from Western wildfires," PNAS Nexus.
+﻿# Data, code, and figures from Higuera et al., 2023, "Shifting social-ecological fire regimes explain increasing structure loss from Western wildfires," PNAS Nexus.
 
 ## Overview
 
@@ -287,8 +287,4 @@ mfri_mode: Modal (most frequently occurring) mean fire return intervals within t
 
 ## 3. FIGURES
 
-Figures in .jpg, .png, .ppt, and .fig (MATLAB figure) formats. Fire names indicate figure number from the main text or supporting information. Three .pdf files group figures from the supporting information by state, ecoregion (level 1), and GACCs. The .pptx file include figures from the main text, in Power Point format. There is one subdirectory, describe below. 
-
-### Figures_TIFF_mat_format: 
-
-Main publication figures in .tiff format, at 600 dpi, and selected figures from supporting information in .fig format (MATLAB figure format).
+Figures from the main text and supporting information (SI), in specific folds for varying formats: Adobe Illustrator (.ai), .esp, MATLAB (.fig), .jpg, .svg, and .TIFF. Fire names indicate figure number from the main text or SI. Three .pdf files group figures from the SI by state, ecoregion (level 1), and GACCs. The .pptx file include figures from the main text, in Power Point format.
