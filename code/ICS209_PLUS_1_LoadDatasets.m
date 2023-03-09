@@ -16,12 +16,12 @@ spatialDomain = {'STUSPS'}; % n = 11
 saveFile = 0; 
 
 %% Load datasets
-data = open('C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\wf-incidents\ics209plus_wf_incidents_west_1999to2020_qc_PEH.mat');
+data = open('C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\wf-incidents\ics209plus_wf_incidents_west_1999to2020_qc_PEH.mat');
 data = data.data;
 data.CAUSE = data.CAUSE_UPDATED;
 
 % Structure loss doy, derrived from the main dataset
-load C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\wf-incidents\strucLossDOY
+load C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\wf-incidents\strucLossDOY
     % i = each structure lost; j = doy  of struct loss, 1 = H cause; 0 = L;
     % year.
     
@@ -30,18 +30,18 @@ load C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_202
 if strcmp(spatialDomain,'STUSPS')
     regionID = unique(data.STUSPS);
     REGION = data.STUSPS;  
-    regionArea = readtable('C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\burnable_area\burnable_area_states.csv');
+    regionArea = readtable('C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\burnable_area\burnable_area_states.csv');
     [~, in] = sort(regionArea.STUSPS);
     burnableArea = regionArea.Burnable_Km2(in); % [km2] burnable area
     burnableArea(end+1) = sum(burnableArea); % [km2]
-    load('C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\gridmet\vpd_JJA_WestStates.mat')
+    load('C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\gridmet\vpd_JJA_WestStates.mat')
     vpdRegion = vpd;
     strucLossDOY.regionID = strucLossDOY.STUSPS;
 end
 if strcmp(spatialDomain,'GACCAbbrev')
     regionID = unique(data.GACCAbbrev);
     REGION = data.GACCAbbrev;
-    load('C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\gridmet\vpd_JJA_WestGACC.mat')
+    load('C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\gridmet\vpd_JJA_WestGACC.mat')
     vpdRegion = vpd;
     strucLossDOY.regionID = strucLossDOY.GACCAbbrev;
 end
@@ -49,7 +49,7 @@ if strcmp(spatialDomain,'NA_L2NAME')
     regionID = unique(data.NA_L2NAME);
     regionID(strcmp(regionID,'NaN')) = [];
     REGION = data.NA_L2NAME;
-    load('C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\gridmet\vpd_JJA_WestEcoL2.mat')
+    load('C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\gridmet\vpd_JJA_WestEcoL2.mat')
     vpdRegion = vpd;
     strucLossDOY.regionID = strucLossDOY.NA_L2NAME;
 end
@@ -59,7 +59,7 @@ if strcmp(spatialDomain,'NA_L3NAME')
     strucLossDOY.regionID = strucLossDOY.NA_L3NAME;
 end
 
-load('C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\gridmet\vpd_JJA_WEST.mat')
+load('C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\gridmet\vpd_JJA_WEST.mat')
 WestWideVPD = vpd; % [kpa] May-Sep. VPD, 1998-2020.
 
 regionID(end+1) = {'WEST'};
@@ -130,7 +130,7 @@ for k = 1:nRegions
 end
 
 %% Calculate structure growth rate for each region
-strucExposureData = readtable('C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\structure_abundance\StrucExposureToFire_states.csv');
+strucExposureData = readtable('C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\structure_abundance\StrucExposureToFire_states.csv');
 exposed = strucExposureData{:,2:end}'; % I
 exposed(:,end+1) = sum(exposed(:,1:nRegions-1),2); % Sum for WEST
 
@@ -179,7 +179,7 @@ strucInBurnableCover = exposed(3,1:end-1)'; % [NEED UNITS] Data from variable
 %     strucLossDOY_region(:,1),strucLossDOY_region(:,2),strucLossDOY_region(:,3),...
 %     strucLossDOY_region(:,4),'VariableName',{'DOY','NonLightning','START_YEAR',...
 %     'STUSPS','GACCAbbrev','NA_L3NAME','NA_L2NAME'});
-% cd C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\wf-incidents
+% cd C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\data\wf-incidents
 % fileName = 'strucLossDOY.mat';
 % save(fileName,'strucLossDOY') 
-% cd C:\Users\philip.higuera.UM\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\code
+% cd C:\Users\philip.higuera\Box\2_lab_SHARE\4_archivedData\Higuera_et_al_2023_PNAS_Nexus\code

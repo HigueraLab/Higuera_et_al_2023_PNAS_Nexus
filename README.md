@@ -78,7 +78,7 @@ Structure abundance in flammable vegetation, calculated as described in the meth
 
 ### wf-incidents: 
 
-Wildfire incidents included in the ICS-209-PLUS dataset, as described in the methods section of the associated publication, and as previously published by St. Denise et al. (2020) for incidents through 2017. As noted in the associated publication, we updated this dataset here through 2020. *After submission (July 2022) and final acceptance (Jan. 2023) of the associated publication, we expect the original ICS-209-PLUS dataset to be updated through 2020 And officially released via a FigShare archive: https://doi.org/10.6084/m9.figshare
+Wildfire incidents included in the ICS-209-PLUS dataset, as described in the methods section of the associated publication, and as previously published by St. Denise et al. (2020) for incidents through 2017. As noted in the associated publication, we updated this dataset here through 2020. *After submission (July 2022) and final acceptance (Jan. 2023) of the associated publication, the officially updated ICS-209-PLUS dataset through 2020 was released via a FigShare archive: https://doi.org/10.6084/m9.figshare.19858927.v3 We point potential users to this dataset, unless the goal is to recreate the figures and analyses in the publication associated with this data archive (PNAS-Nexus, 2023). 
 
 The ICS-209-PLUS dataset is the foundational data used for the associated publication, called upon in the script "ICS209_PLUS_0_ImportData_UpdateCauseCode.m" described above. This script created the files "ics209plus_wf_incidents_west_1999to2020_qc_PEH.xlsx" and the two *.mat data files in this directory, as follows: 
 1. Run script ICS209_PLUS_0_ImportData_UpdateCauseCode.m to open data in 
@@ -107,8 +107,8 @@ FUEL_MODEL: fuel model associated with fire event
 INCIDENT_DESCRIPTION: text description of event
 INC_IDENTIFIER: incident identifier, for a subset of events 
 INJURIES_TOTAL: total number of injuries reported
-LL_CONFIDENCE: 
-LL_UPDATE
+LL_CONFIDENCE: Mainly missing values, but high (H) or low (L) for some individual events; an artifact from combining ICS-209 and FOD datasets 
+LL_UPDATE: Mainly missing values, but a value of “1” for some individual events; an artifact from combining ICS-209 and FOD datasets
 LOCAL_TIMEZONE: time zone linked with fire event
 POO_CITY: City close to the fire point of origin
 POO_COUNTY: Country linked with the fire point of origin

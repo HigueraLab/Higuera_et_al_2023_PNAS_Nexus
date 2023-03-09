@@ -25,7 +25,7 @@ colorH = [1 0 0];%[0 0.5 0.9961]; % Human-caused
 colorL = [0.1 0.25 1]; % Lightning = red
 fs = 8;
 
-for i = 1:nRegions
+for i = nRegions
 
 if i < nRegions
     if strcmp(spatialDomain,'STUSPS')
